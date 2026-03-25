@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Light mode tokens ─────────────────────────────── */
+:root {
+  --color-bg:         #FAF7F2;
+  --color-bg-alt:     #F5F0E8;
+  --color-surface:    #FAF7F2;
+  --color-text:       #2C2C2C;
+  --color-text-muted: #2C2C2C99;
+  --color-border:     #2C2C2C18;
+  --color-card:       #FAF7F2;
+  --color-card-alt:   #F5F0E8;
+  --color-heading:    #1A1410;
+  --color-nav-bg:     #FAF7F2f5;
+  --color-nav-border: rgba(196,132,90,0.12);
+}
+
+/* ─── Dark mode tokens ──────────────────────────────── */
+.dark {
+  --color-bg:         #16120e;
+  --color-bg-alt:     #1e1912;
+  --color-surface:    #16120e;
+  --color-text:       #e8ddd0;
+  --color-text-muted: #e8ddd099;
+  --color-border:     #FAF7F218;
+  --color-card:       #1e1912;
+  --color-card-alt:   #261f17;
+  --color-heading:    #FAF7F2;
+  --color-nav-bg:     #16120ef5;
+  --color-nav-border: rgba(196,132,90,0.12);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* ─── Section backgrounds ─────────── */
+  .section-bg {
+    background-color: var(--color-bg);
+  }
+  .section-bg-alt {
+    background-color: var(--color-bg-alt);
+  }
+
+  /* ─── All bg-ivory sections ─────────── */
+  .bg-ivory {
+    background-color: var(--color-bg) !important;
+  }
+  .bg-cream {
+    background-color: var(--color-bg-alt) !important;
+  }
+
+  /* ─── Text colors ─────────────────── */
+  /* Base classes */
+  .text-charcoal {
+    color: var(--color-text) !important;
+  }
+  .text-espresso {
+    color: var(--color-heading) !important;
+  }
+  /* Opacity variants — swap the RGB while keeping --tw-text-opacity intact */
+  .dark [class*="text-charcoal"] {
+    color: rgb(232 221 208 / var(--tw-text-opacity, 1)) !important;
+  }
+  .dark [class*="text-espresso"] {
+    color: rgb(232 221 208 / var(--tw-text-opacity, 1)) !important;
+  }
+
+  /* ─── Cards ───────────────────────── */
+  .card-surface {
+    background-color: var(--color-card);
+    border-color: var(--color-border);
+  }
+
+  /* ─── Borders ─────────────────────── */
+  .border-charcoal\/5,
+  .border-charcoal\/8 {
+    border-color: var(--color-border) !important;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  /* Smooth color transitions for theme switch */
+  * {
+    transition-property: background-color, border-color, color;
+    transition-duration: 250ms;
+    transition-timing-function: ease;
+  }
+  /* Exclude motion elements from color transitions */
+  [data-framer-component-type],
+  .framer-motion,
+  svg,
+  canvas {
+    transition: none !important;
+  }
+}
