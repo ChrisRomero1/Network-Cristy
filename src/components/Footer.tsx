@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { MapPin, Mail } from 'lucide-react'
 
 function InstagramIcon() {
@@ -26,10 +27,20 @@ function FacebookIcon() {
   )
 }
 
-const navLinks: Record<string, string[]> = {
-  'Explore': ['About', 'Spaces', 'Events', 'Community'],
-  'Get Involved': ['Inquire About Space', 'Host an Event', 'Join the Community', 'Get Updates'],
-}
+const exploreLinks = [
+  { label: 'Home', to: '/' },
+  { label: 'About', to: '/about' },
+  { label: 'Directory', to: '/directory' },
+  { label: 'Community', to: '/community' },
+  { label: 'Events', to: '/events' },
+]
+
+const involvedLinks = [
+  { label: 'List Your Business', to: '/directory' },
+  { label: 'Host an Event', to: '/events' },
+  { label: 'Join the Community', to: '/community' },
+  { label: 'Contact', to: '/contact' },
+]
 
 export default function Footer() {
   return (
@@ -42,11 +53,10 @@ export default function Footer() {
               <div className="w-7 h-7 bg-clay rounded-sm flex items-center justify-center">
                 <span className="text-ivory font-display font-bold text-sm leading-none">C</span>
               </div>
-              <span className="font-display font-semibold text-xl text-ivory tracking-tight">Collective</span>
+              <span className="font-display font-semibold text-xl text-ivory tracking-tight">Cristy Space</span>
             </div>
-            <p className="text-ivory/40 text-sm leading-relaxed max-w-sm font-light mb-6">
-              A multi-space destination for artists, entrepreneurs, and community builders at the
-              heart of Chattanooga, Tennessee.
+            <p className="text-ivory/40 text-sm leading-relaxed max-w-sm font-light mb-4">
+              Chattanooga's curated platform for business discovery, creative community, and entrepreneurial growth.
             </p>
             <div className="flex items-center gap-2 text-ivory/40 text-sm mb-3">
               <MapPin size={13} className="text-clay flex-shrink-0" />
@@ -54,33 +64,45 @@ export default function Footer() {
             </div>
             <div className="flex items-center gap-2 text-ivory/40 text-sm">
               <Mail size={13} className="text-clay flex-shrink-0" />
-              <a href="mailto:hello@collective.com" className="hover:text-clay transition-colors">
-                hello@collective.com
+              <a href="mailto:hello@cristyspace.com" className="hover:text-clay transition-colors">
+                hello@cristyspace.com
               </a>
             </div>
           </div>
 
-          {/* Nav columns */}
-          {Object.entries(navLinks).map(([col, links]) => (
-            <div key={col}>
-              <h4 className="text-ivory/70 text-xs tracking-[0.2em] uppercase font-medium mb-6">{col}</h4>
-              <ul className="space-y-3">
-                {links.map(link => (
-                  <li key={link}>
-                    <a href="#" className="text-ivory/40 text-sm hover:text-clay transition-colors font-light">
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {/* Explore column */}
+          <div>
+            <h4 className="text-ivory/70 text-xs tracking-[0.2em] uppercase font-medium mb-6">Explore</h4>
+            <ul className="space-y-3">
+              {exploreLinks.map(link => (
+                <li key={link.to}>
+                  <Link to={link.to} className="text-ivory/40 text-sm hover:text-clay transition-colors font-light">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Get Involved column */}
+          <div>
+            <h4 className="text-ivory/70 text-xs tracking-[0.2em] uppercase font-medium mb-6">Get Involved</h4>
+            <ul className="space-y-3">
+              {involvedLinks.map(link => (
+                <li key={link.label}>
+                  <Link to={link.to} className="text-ivory/40 text-sm hover:text-clay transition-colors font-light">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         {/* Bottom */}
         <div className="flex flex-col sm:flex-row items-center justify-between pt-8 border-t border-ivory/8 gap-4">
           <p className="text-ivory/25 text-xs">
-            © 2025 Collective Chattanooga. All rights reserved.
+            © 2025 Cristy Space. All rights reserved.
           </p>
           <div className="flex items-center gap-5">
             <a href="#" className="text-ivory/30 hover:text-clay transition-colors">

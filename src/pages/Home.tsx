@@ -5,6 +5,7 @@ import { ArrowRight, Palette, Users, Calendar, Lightbulb, Globe } from 'lucide-r
 import ShaderHero from '@/components/ui/shader-hero'
 import { ScrollExpansionHero } from '@/components/ui/scroll-expansion-hero'
 import { TestimonialsColumns } from '@/components/ui/testimonials-columns-1'
+import DirectoryPreviewSection from '@/components/sections/DirectoryPreviewSection'
 
 const offerings = [
   { icon: Users, title: 'Coworking Space', desc: 'Flexible desks and private offices for teams, freelancers, and remote workers.', accent: 'bg-clay/10 text-clay' },
@@ -20,6 +21,7 @@ const audienceItems = [
   { label: 'Startups', desc: "Flexible workspace and momentum when you're moving fast." },
   { label: 'Freelancers', desc: 'A professional home base with community built in.' },
   { label: 'Community Builders', desc: 'Programming, space, and reach to grow what matters most.' },
+  { label: 'Local Businesses', desc: 'Get discovered by the Chattanooga community through a curated listing that actually drives results.' },
 ]
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
@@ -60,20 +62,20 @@ export default function Home() {
             >
               <SectionLabel>Our Vision</SectionLabel>
               <h2 className="font-display text-4xl md:text-5xl text-espresso dark:text-ivory mt-4 mb-6 leading-tight">
-                More Than a Building.{' '}
-                <span className="italic text-clay">A Platform.</span>
+                More Than a Space.{' '}
+                <span className="italic text-clay">An Ecosystem.</span>
               </h2>
               <p className="text-charcoal/65 text-lg leading-relaxed mb-5 font-light">
-                We're building something Chattanooga has never had — a connected network of spaces designed for people who are creating, building, and driving culture forward.
+                Cristy Space is building Chattanooga's most connected creative and business ecosystem — not just a place to work, but a platform to discover, grow, and collaborate with the people shaping this city's future.
               </p>
               <p className="text-charcoal/55 leading-relaxed mb-10 font-light text-sm">
-                Multiple facilities. One shared purpose: give ideas the space they need to become real.
+                Physical spaces, a vibrant community, and a curated local business directory — all under one roof.
               </p>
               <Link
                 to="/about"
                 className="inline-flex items-center gap-2 text-sm font-medium text-clay hover:gap-3 transition-all"
               >
-                Our Full Story <ArrowRight size={14} />
+                About Our Mission <ArrowRight size={14} />
               </Link>
             </motion.div>
 
@@ -140,6 +142,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* DIRECTORY PREVIEW */}
+      <DirectoryPreviewSection />
+
       {/* 4. SPACES PREVIEW — Scroll Expansion */}
       <ScrollExpansionHero />
 
@@ -182,7 +187,7 @@ export default function Home() {
               Built for People Who <span className="italic text-clay">Make Things Happen.</span>
             </h2>
           </motion.div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-10">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-10">
             {audienceItems.map((a, i) => (
               <motion.div
                 key={i}
@@ -281,20 +286,20 @@ export default function Home() {
               <span className="italic">and Grow Together.</span>
             </h2>
             <p className="text-ivory/65 text-lg max-w-lg mx-auto mb-12 font-light">
-              The space is being built. The community is forming. This is your moment to get in early.
+              The space is growing. The community is here. Discover local businesses, connect with creators, and find your place in Chattanooga's most vibrant ecosystem.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
               <Link
-                to="/contact"
+                to="/directory"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-ivory text-clay font-medium text-sm rounded-sm hover:bg-cream transition-colors group"
               >
-                Inquire About Space <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
+                Explore the Directory <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                to="/contact"
+                to="/community"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-ivory/35 text-ivory font-medium text-sm rounded-sm hover:bg-ivory/10 transition-colors"
               >
-                Stay Connected
+                Join the Community
               </Link>
             </div>
           </motion.div>
