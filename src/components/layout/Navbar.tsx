@@ -6,8 +6,9 @@ import { cn } from '@/lib/utils'
 import { ThemeSwitch } from '@/components/ui/theme-switch-button'
 
 const navLinks = [
+  { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
-  { label: 'Spaces', href: '/spaces' },
+  { label: 'Directory', href: '/directory' },
   { label: 'Community', href: '/community' },
   { label: 'Events', href: '/events' },
   { label: 'Contact', href: '/contact' },
@@ -43,7 +44,7 @@ export default function Navbar() {
             <span className="text-ivory font-display font-bold text-sm leading-none">C</span>
           </div>
           <span className={cn('font-display font-semibold text-lg tracking-tight transition-colors', lightMode ? 'text-ivory' : 'text-heading dark:text-ivory')}>
-            Collective
+            Cristy Space
           </span>
         </Link>
 
@@ -63,10 +64,10 @@ export default function Navbar() {
           ))}
           <ThemeSwitch />
           <Link
-            to="/contact"
+            to="/directory"
             className="ml-2 px-5 py-2 bg-clay text-ivory text-sm font-medium rounded-sm hover:bg-terracotta transition-colors"
           >
-            Inquire About Space
+            Explore Directory
           </Link>
         </nav>
 
@@ -99,11 +100,11 @@ export default function Navbar() {
             ))}
             <ThemeSwitch className="mt-4 mx-auto" />
             <Link
-              to="/contact"
+              to="/directory"
               onClick={() => setOpen(false)}
               className="mt-4 block text-center px-5 py-3 bg-clay text-ivory text-sm font-medium rounded-sm hover:bg-terracotta transition-colors"
             >
-              Inquire About Space
+              Explore Directory
             </Link>
           </motion.div>
         )}
