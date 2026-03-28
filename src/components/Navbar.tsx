@@ -23,18 +23,14 @@ export default function Navbar() {
   }, [])
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'bg-ivory/95 backdrop-blur-md shadow-sm border-b border-clay/10' : 'bg-transparent'
-      }`}
-    >
+    <header className="fixed top-0 left-0 right-0 z-50 bg-ivory/95 backdrop-blur-md shadow-sm border-b border-clay/10 transition-all duration-500">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           <div className="w-7 h-7 bg-clay rounded-sm flex items-center justify-center">
             <span className="text-ivory font-display font-bold text-sm leading-none">C</span>
           </div>
-          <span className={`font-display font-semibold text-lg tracking-tight transition-colors ${scrolled ? 'text-espresso' : 'text-ivory'}`}>
+          <span className="font-display font-semibold text-lg tracking-tight text-espresso">
             Cristy Space
           </span>
         </Link>
@@ -45,9 +41,7 @@ export default function Navbar() {
             <Link
               key={link.to}
               to={link.to}
-              className={`text-sm font-medium tracking-wide transition-colors hover:text-clay ${
-                scrolled ? 'text-charcoal' : 'text-ivory/90'
-              }`}
+              className="text-sm font-medium tracking-wide transition-colors hover:text-clay text-charcoal"
             >
               {link.label}
             </Link>
@@ -62,7 +56,7 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className={`md:hidden transition-colors ${scrolled ? 'text-charcoal' : 'text-ivory'}`}
+          className="md:hidden transition-colors text-charcoal"
           onClick={() => setOpen(!open)}
         >
           {open ? <X size={22} /> : <Menu size={22} />}
